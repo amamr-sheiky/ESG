@@ -23,6 +23,11 @@ function App() {
   const [metricLoading, setMetricLoading] = useState(true);
   const [error, setError] = useState(null);
   const [auditLog, setAuditLog] = useState([]);
+  const [showCompanies, setShowCompanies] = useState(false);
+const [showBusinessUnits, setShowBusinessUnits] = useState(false);
+const [showMetrics, setShowMetrics] = useState(false);
+const [showVerifiedMetrics, setShowVerifiedMetrics] = useState(false);
+
 
   // Helper to add audit log entry
   const addAuditLog = (action, details) => {
@@ -323,48 +328,156 @@ function App() {
         <Title className="header-title" level={2}>ESG APP</Title>
       </div>
 
-      {/* Dashboard Overview */}
-      <div style={{ margin: "32px 0" }}>
-        <Row gutter={24} justify="center">
-          <Col xs={24} sm={12} md={6}>
-            <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
-              <Statistic
-                title="Total Companies"
-                value={companies.length}
-                valueStyle={{ color: "#185a9d", fontWeight: 700 }}
-              />
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
-              <Statistic
-                title="Business Units"
-                value={businessUnits.length}
-                valueStyle={{ color: "#43cea2", fontWeight: 700 }}
-              />
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
-              <Statistic
-                title="Total Metrics"
-                value={metrics.length}
-                valueStyle={{ color: "#f59e42", fontWeight: 700 }}
-              />
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
-              <Statistic
-                title="Verified Metrics"
-                value={metrics.filter(m => m.is_verified).length}
-                valueStyle={{ color: "#52c41a", fontWeight: 700 }}
-              />
-            </Card>
-          </Col>
-        </Row>
-      </div>
+    {/* Dashboard Overview */}
+<div style={{ margin: "32px 0" }}>
+  <Row gutter={24} justify="center">
+    <Col xs={24} sm={12} md={6}>
+      <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
+        <Statistic
+          title="Total Companies"
+          value={companies.length}
+          valueStyle={{ color: "#185a9d", fontWeight: 700 }}
+        />
+      </Card>
+    </Col>
+    <Col xs={24} sm={12} md={6}>
+      <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
+        <Statistic
+          title="Business Units"
+          value={businessUnits.length}
+          valueStyle={{ color: "#43cea2", fontWeight: 700 }}
+        />
+      </Card>
+    </Col>
+    <Col xs={24} sm={12} md={6}>
+      <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
+        <Statistic
+          title="Total Metrics"
+          value={metrics.length}
+          valueStyle={{ color: "#f59e42", fontWeight: 700 }}
+        />
+      </Card>
+    </Col>
+    <Col xs={24} sm={12} md={6}>
+      <Card bordered={false} style={{ borderRadius: 12, boxShadow: "0 2px 12px #43cea220" }}>
+        <Statistic
+          title="Verified Metrics"
+          value={metrics.filter(m => m.is_verified).length}
+          valueStyle={{ color: "#52c41a", fontWeight: 700 }}
+        />
+      </Card>
+    </Col>
+  </Row>
 
+ {/* Interactive Buttons */}
+<div style={{ display: "flex", justifyContent: "center", gap: 16, margin: "24px 0" }}>
+  <Button
+    className="dashboard-btn"
+    type={showCompanies ? "primary" : "default"}
+    onClick={() => setShowCompanies((v) => !v)}
+  >
+    {showCompanies ? "Hide" : "Show"} Companies
+  </Button>
+  <Button
+    className="dashboard-btn"
+    type={showBusinessUnits ? "primary" : "default"}
+    onClick={() => setShowBusinessUnits((v) => !v)}
+  >
+    {showBusinessUnits ? "Hide" : "Show"} Business Units
+  </Button>
+  <Button
+    className="dashboard-btn"
+    type={showMetrics ? "primary" : "default"}
+    onClick={() => setShowMetrics((v) => !v)}
+  >
+    {showMetrics ? "Hide" : "Show"} Metrics
+  </Button>
+  <Button
+    className="dashboard-btn"
+    type={showVerifiedMetrics ? "primary" : "default"}
+    onClick={() => setShowVerifiedMetrics((v) => !v)}
+  >
+    {showVerifiedMetrics ? "Hide" : "Show"} Verified Metrics
+  </Button>
+</div>
+
+{/* Data Display */}
+<div style={{ maxWidth: 900, margin: "0 auto 32px auto" }}>
+  {showCompanies && (
+    <Card style={{ marginBottom: 16 }}>
+      <Title level={5}>Company Names</Title>
+      {companies.length === 0 ? (
+        <Spin />
+      ) : (
+        <ul>
+          {companies.map((c) => (
+            <li key={c.id}>{c.name}</li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  )}
+
+  {showBusinessUnits && (
+    <Card style={{ marginBottom: 16 }}>
+      <Title level={5}>Business Units</Title>
+      {businessUnits.length === 0 ? (
+        <Spin />
+      ) : (
+        <ul>
+          {businessUnits.map((bu) => (
+            <li key={bu.id}>
+              {bu.name}{" "}
+              <span style={{ color: "#888" }}>
+                ({companies.find((c) => c.id === bu.company)?.name || "Unknown Company"})
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  )}
+
+  {showMetrics && (
+    <Card style={{ marginBottom: 16 }}>
+      <Title level={5}>Total Metrics: {metrics.length}</Title>
+      {metrics.length === 0 ? (
+        <Spin />
+      ) : (
+        <ul>
+          {metrics.map((m) => (
+            <li key={m.id}>
+              {m.name}{" "}
+              <span style={{ color: "#888" }}>
+                ({businessUnits.find((bu) => bu.id === m.business_unit)?.name || "Unknown Unit"})
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  )}
+
+  {showVerifiedMetrics && (
+    <Card>
+      <Title level={5}>Verified Metrics: {metrics.filter(m => m.is_verified).length}</Title>
+      {metrics.length === 0 ? (
+        <Spin />
+      ) : (
+        <ul>
+          {metrics.filter(m => m.is_verified).map((m) => (
+            <li key={m.id}>
+              {m.name}{" "}
+              <span style={{ color: "#888" }}>
+                ({businessUnits.find((bu) => bu.id === m.business_unit)?.name || "Unknown Unit"})
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </Card>
+  )}
+</div>
      <div className="calendar-deadline-row" style={{ display: "flex", gap: 32, maxWidth: 1300, margin: "40px auto" }}>
   {/* Calendar on the left */}
   <div style={{ flex: 2 }}>
@@ -642,6 +755,7 @@ function App() {
         </ul>
       </div>
     </div>
+     </div>
   );
   
 }

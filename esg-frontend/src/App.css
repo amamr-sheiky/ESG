@@ -298,6 +298,41 @@ html {
     gap: 0;
   }
 }
+/* ESG Dashboard Button Theme */
+.dashboard-btn.ant-btn {
+  background: linear-gradient(90deg, #e0fff4 0%, #e6f0fa 100%) !important;
+  color: #185a9d !important;
+  border: none !important;
+  border-radius: 18px !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 26px !important;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.08) !important;
+  transition: background 0.4s, color 0.2s, box-shadow 0.3s !important;
+  outline: none !important;
+  margin: 0 8px 8px 0;
+  display: inline-block;
+  background-size: 200% 100%;
+  background-position: left center;
+}
+
+.dashboard-btn.ant-btn:hover,
+.dashboard-btn.ant-btn:focus {
+  background: linear-gradient(90deg, #c3f5e6 0%, #d0e6fa 100%) !important;
+  color: #185a9d !important;
+  box-shadow: 0 6px 18px 0 rgba(67, 206, 162, 0.13) !important;
+  background-position: right center;
+}
+
+.dashboard-btn.ant-btn:active {
+  background: linear-gradient(90deg, #b2f1dc 0%, #b6d8f5 100%) !important;
+  color: #185a9d !important;
+  box-shadow: 0 2px 6px 0 rgba(24, 144, 255, 0.09) !important;
+}
+
+
+
 
 
 }
