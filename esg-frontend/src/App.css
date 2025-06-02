@@ -1,0 +1,303 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e0fff4 0%, #e6f0fa 100%);
+  /* fallback for old browsers */
+  background-color: #e6f7ff;
+}
+html {
+  min-height: 100%;
+  background: linear-gradient(90deg, #e0fff4 0%, #e6f0fa 100%);
+  background-color: #e6f7ff;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.header-bar {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  padding: 24px 0;
+  text-align: center;
+  margin-bottom: 32px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+}
+
+.header-title {
+  color: #fff !important;
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+.company-form-card {
+  max-width: 600px;
+  margin: 32px auto 24px auto;
+  padding: 32px 24px;
+  background: linear-gradient(120deg, #f6ffed 70%, #e6f7ff 100%);
+  box-shadow: 0 4px 24px rgba(67, 206, 162, 0.12);
+  border-radius: 16px;
+  border: 1px solid #b7eb8f;
+  transition: box-shadow 0.3s;
+}
+
+.company-form-card:hover {
+  box-shadow: 0 8px 32px rgba(24, 144, 255, 0.18);
+}
+
+.ant-form-item-label > label {
+  color: #185a9d !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.stylish-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.12);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.stylish-btn:hover, .stylish-btn:focus {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.18);
+}
+
+.header-bar {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  padding: 24px 0;
+  text-align: center;
+  margin-bottom: 32px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.1);
+}
+
+.header-title {
+  color: #fff !important;
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.company-form-card, .metric-form-card, .businessunit-form-card {
+  max-width: 650px;
+  margin: 32px auto 24px auto;
+  padding: 32px 24px;
+  background: linear-gradient(120deg, #f6ffed 70%, #e6f7ff 100%);
+  box-shadow: 0 4px 24px rgba(67, 206, 162, 0.12);
+  border-radius: 16px;
+  border: 1px solid #b7eb8f;
+  transition: box-shadow 0.3s;
+}
+
+.company-form-card:hover, .metric-form-card:hover, .businessunit-form-card:hover {
+  box-shadow: 0 8px 32px rgba(24, 144, 255, 0.18);
+}
+
+.stylish-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(67, 206, 162, 0.12);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.stylish-btn:hover, .stylish-btn:focus {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.18);
+}
+
+.ant-table-thead .ant-table-cell {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%) !important;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-bottom: 2px solid #b7eb8f !important;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Zebra striping for table rows */
+.ant-table-tbody > tr:nth-child(odd) > td {
+  background: #f6ffed !important;
+}
+.ant-table-tbody > tr:nth-child(even) > td {
+  background: #e6f0fa !important;
+}
+
+/* Row hover effect */
+.ant-table-tbody > tr:hover > td {
+  background: #e0f7fa !important;
+  color: #185a9d !important;
+}
+
+/* Rounded corners for the table */
+.ant-table-wrapper .ant-table {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(67, 206, 162, 0.07);
+}
+
+/* Table cell padding and font */
+.ant-table-cell {
+  padding: 12px 10px !important;
+  font-size: 1.01rem;
+}
+
+/* Center the table title */
+.ant-typography.ant-typography-4 {
+  text-align: center;
+  color: #185a9d;
+  margin-bottom: 18px;
+}
+.ant-statistic-title {
+  font-size: 1.1rem;
+  color: #185a9d !important;
+  letter-spacing: 0.5px;
+}
+.ant-card {
+  background: linear-gradient(120deg, #f6ffed 80%, #e6f7ff 100%);
+}
+.section-row {
+  display: flex;
+  gap: 32px;
+  margin: 32px 0;
+  align-items: flex-start;
+  padding-left: 40px; /* Add this line for space on the left */
+}
+
+
+.section-col {
+  flex: 1 1 0;
+  min-width: 320px;
+}
+
+@media (max-width: 900px) {
+  .section-row {
+    flex-direction: column;
+    gap: 0;
+    padding-left: 0; /* Remove left padding on mobile */
+  }
+  .section-col {
+    min-width: 0;
+  }
+  .delete-btn {
+  background: linear-gradient(90deg, #de5252 0%, #f09819 100%);
+  color: #fff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 600;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(255, 88, 88, 0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.delete-btn:hover, .delete-btn:focus {
+  background: linear-gradient(90deg, #f09819 0%, #ff5858 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(255, 88, 88, 0.18);
+}
+/* Notification styles */
+.ant-notification-notice {
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(67, 206, 162, 0.15);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.ant-notification-notice-message {
+  color: #185a9d;
+  font-size: 1.1rem;
+}
+.ant-notification-notice-description {
+  color: #43cea2;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Audit Log styles */
+.audit-log-card {
+  max-width: 700px;
+  margin: 32px auto;
+  background: linear-gradient(120deg, #f6ffed 80%, #e6f7ff 100%);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(67, 206, 162, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.audit-log-card ul {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.audit-log-card li {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #b7eb8f;
+  color: #185a9d;
+  font-weight: 500;
+}
+.audit-log-card li span {
+  color: #8c8c8c;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+.ant-table-wrapper {
+  overflow-x: auto;
+}
+.ant-table {
+  min-width: 1200px; /* Adjust to fit your columns */
+}
+@media (max-width: 900px) {
+  .calendar-deadline-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+
+}
